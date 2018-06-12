@@ -134,7 +134,7 @@ class FFMPEGMuxer(StreamIO):
             t.daemon = True
             t.start()
         self.process = subprocess.Popen(self._cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=self.errorlog)
-
+        self.process.stdin.close()
         return self
 
     @classmethod
